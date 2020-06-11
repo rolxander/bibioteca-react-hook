@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Home from './components/home'
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import reducer from './redux/reducer'
+//Estado inicial de nuestra estructura de datos
+const initialState = {
+  bookList:[],
+  bookListByCode:[],
+  bookListByTitle:[],
+}
+//funcion que clasifica las acciones de los datos que se le envien al reducer para actualizar los datos
 
+//creador de nuesta base de datos local 
+const store = createStore(reducer,initialState);
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    //componente que envuelve nuestra aplicacion y que tiene como prop nuesto estado global 
+  <Provider store={store}>
+    <Router>
+        <Switch>
+          <Route exact path="/" render={()=>{
+            return (<Home />)
+          }}/>
+        </Switch>
+    </Router>
+   </Provider>
   );
 }
 
