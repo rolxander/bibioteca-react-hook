@@ -5,7 +5,7 @@ const axios = require('axios');
 const BookList = () =>{
     const [loader,setLoader] = useState(true);
     // instanciamos el estado global 
-    const bookList = useSelector((state)=>state.bookListByCode)
+    const bookList = useSelector((state)=>state.bookListCode)
     // instanciamos el dispath para manejar el estado global
     const dispatch = useDispatch();
     useEffect(()=>{
