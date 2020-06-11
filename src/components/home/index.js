@@ -1,10 +1,12 @@
 import React from 'react';
 import BookList from '../book-list';
-import Search from '../serch'
+import Search from '../search'
+import Navigation from '../navigation';
 const Home = () =>{
     return(
     <>
     <Search />
+    <Navigation/>
     <BookList />
     </>
     )
