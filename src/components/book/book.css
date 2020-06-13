@@ -1,0 +1,30 @@
+.book{
+    margin: 1em auto;
+    background-color: rgba(163, 164, 165, 0.151);
+    box-shadow: 3px 3px 10px #707070;
+    padding: 1em;
+    width: 95%;
+}
+.title-book{
+    letter-spacing: 3px;
+    font-weight: 300;
+    font-size: 1.5em;
+    padding-bottom: 0.2em;
+}
+
+.body-book{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.book-data{
+    width: 50%;
+    color: #707070;
+}
+.book-data>span{
+    display: block;
+    line-height: 20px;
+}
+.book-opcions{
+    width: 20%;
+}

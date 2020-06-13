@@ -1,29 +1,16 @@
-import React,{useEffect, useState} from 'react';
-import {useSelector,useDispatch} from 'react-redux'
+import React from 'react';
 import Book from '../book'
-const axios = require('axios');
-const BookList = () =>{
-    const [loader,setLoader] = useState(true);
-    // instanciamos el estado global 
-    const bookList = useSelector((state)=>state.bookListCode)
-    // instanciamos el dispath para manejar el estado global
-    const dispatch = useDispatch();
-    useEffect(()=>{
-        axios({method:'get',
-               url:'http://localhost:3500/api/libros'
-        })
-        .then((response)=>{
-            dispatch({
-                type:'SET_BOOK_LIST',
-                payload:response.data
-            })
-        })
-        .catch(()=>{});
-    },[dispatch]);
-    
+const BookList = (props) =>{
+    const bookList  = props.bookList
 return(<>{
     bookList.map((book,key)=>{
+       // console.log(book)
+        if(book.estado ===props.filter){
         return (<Book  key = {key} book = {book}/>)
+        }
+        else{
+            return null;
+        }
     })
 }</>)
 }

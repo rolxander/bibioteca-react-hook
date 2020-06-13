@@ -1,0 +1,46 @@
+#root {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-areas: "head head"
+                         "nav  main";
+                       /*  "foot  foot";*/
+    grid-template-rows: 100px 1fr 30px;
+    grid-template-columns: 200px 1fr;
+    grid-gap: 5px;
+  }
+  
+  #root > header {
+    grid-area: head;
+    background-color:   #4AABCB;
+    font-weight: 300;
+    font-size: 2em;
+    color: white;
+  }
+  
+  
+  #root > nav {
+    grid-area: nav;
+    background-color: #02385E;
+    /*color: #9FA7AD;*/
+    color: white;
+    padding-top: 1em;
+    border-bottom: 1px solid white;
+  }
+  
+  #root > nav > a:active{
+    color: #cfd8dc;
+}
+  
+  #root > main {
+    padding: 1em;
+    grid-area: main;
+  /*  background-color:  #9FA7AD;*/
+  background-color: #CFD8DC;
+  }
+  
+  /*#root > footer {
+    grid-area: foot;
+    background-color: #8cffa0;  
+  }*/
+  

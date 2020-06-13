@@ -4,6 +4,9 @@ import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {store} from './redux/store'
 import Prestamos from './components/prestamos'
+import LiborsNoDevueltos from'./components/reporte-libros-no-devueltos'
+import Container from './components/container'
+import Navigation from './components/navigation'
 //Estado inicial de nuestra estructura de datos
 
 
@@ -15,11 +18,39 @@ function App() {
     <Router>
         <Switch>
           <Route exact path="/" render={()=>{
-            return (<Home />)
+            return (<>
+                  <Container>
+                      <header className="flex-center">Biblioteca</header>
+                      <nav>
+                          <Navigation/>
+                      </nav>
+                      <Home/>  
+                  </Container>          
+                </> )
           
           }}/>
           <Route exact path="/prestamos" render={()=>{
-            return (<Prestamos />)
+            return (<>
+              <Container>
+                  <header className="flex-center">Biblioteca</header>
+                  <nav>
+                      <Navigation/>
+                  </nav>
+                  <Prestamos/>
+              </Container>          
+            </> )
+          
+          }}/>
+          <Route exact path="/informe" render={()=>{
+             return (<>
+              <Container>
+                  <header className="flex-center">Biblioteca</header>
+                  <nav>
+                      <Navigation/>
+                  </nav>
+                  <LiborsNoDevueltos/>
+              </Container>          
+            </> )
           
           }}/>
         </Switch>

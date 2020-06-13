@@ -10,12 +10,13 @@ function reducer(state,action){
           const bookListByCode = state.bookList.filter(book => book.codigo.toLowerCase().includes(action.payload.toLowerCase()))
           return {...state,bookListByCode}
         }
-      };break;
-      case 'FILTER_BY_BOOK_LOAN':{
-
       }
-      case 'FILTER_BY_UNRETURNED_BOOK':{
-          
+      case 'SET_NEW_BOOK':{
+          console.log(action.payload)
+          console.log(state)
+          let new_state = state.bookList = [...state.bookList,action.payload]
+          console.log(new_state)
+          return {...state,bookList:new_state,bookListByCode:new_state} 
       }
       default :{ return state}
     }

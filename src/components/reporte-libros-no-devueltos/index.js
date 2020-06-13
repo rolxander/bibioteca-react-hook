@@ -3,18 +3,13 @@ import Navigation from '../navigation'
 import Search from '../search'
 import {useSelector}from 'react-redux'
 import BookList from '../book-list'
-const Prestamos =()=>{
+const LiborsNoDevueltos = () =>{
     const bookList = useSelector(state=>state.bookListByCode)
     return(
     <>
-        
         <main>
-            <div className="flex-center">
-                <Search />
-                <BookList bookList ={bookList} filter="prestado"/>
-            </div>
-            
+            <BookList bookList ={bookList} filter="debe"/>
         </main>
     </>)
 }
-export default Prestamos;
+export default LiborsNoDevueltos;

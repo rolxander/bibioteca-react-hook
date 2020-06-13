@@ -4,6 +4,7 @@ const initialState = {
     bookList:[],
     bookListByCode:[],
     bookListByTitle:[],
+
 }
 const store = createStore(reducer,initialState);
 export {store}
