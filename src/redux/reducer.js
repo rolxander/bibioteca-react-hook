@@ -26,7 +26,6 @@ function reducer(state,action){
             new_state[libro].prestamos = [...new_state[libro].prestamos,action.payload]
           }
         return null});
-        console.log(new_state)
         return {...state,bookList:new_state,bookListByCode:new_array} 
         
       }

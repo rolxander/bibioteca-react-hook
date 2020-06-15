@@ -14,6 +14,7 @@ const NewLoan = (props)=>{
     <>
         <form action="#"
             onSubmit={(e)=>{
+            const {setModal} = props;
             e.preventDefault();
             let date = new Date();
             let dateMilisegundos = date.getTime();
@@ -37,11 +38,11 @@ const NewLoan = (props)=>{
                     dispatch({
                         type:'SET_LOAN_BOOK',
                         payload:response.data.data
-                    })  
+                    });
+                    setModal() 
                   }
 
               });
-            console.log(loan)
             }}>        
             <input 
                 onChange={inputChange}

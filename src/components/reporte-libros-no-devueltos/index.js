@@ -1,5 +1,4 @@
 import React from 'react'
-import Navigation from '../navigation'
 import Search from '../search'
 import {useSelector}from 'react-redux'
 import BookList from '../book-list'
@@ -8,6 +7,9 @@ const LiborsNoDevueltos = () =>{
     return(
     <>
         <main>
+            <div className="flex-center">
+                <Search />
+            </div> 
             <BookList bookList ={bookList} filter="debe"/>
         </main>
     </>)

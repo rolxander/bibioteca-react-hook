@@ -7,9 +7,11 @@
 }
 .title-book{
     letter-spacing: 2px;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1.5em;
-    padding-bottom: 0.2em;
+    padding-bottom: 0.3em;
+    color: #000;
+    text-transform: capitalize;
 }
 
 .body-book{
@@ -18,8 +20,15 @@
     justify-content: space-between;
 }
 .book-data{
+    text-transform: capitalize;
     width: 50%;
-    color: rgba(10, 10, 10, .5)
+    color: rgba(10, 10, 10, .5);
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+.book-data label{
+    color:#000;
+    font-weight: 400;
 }
 .book-data>span{
     display: block;
