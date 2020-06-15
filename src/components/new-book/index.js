@@ -69,7 +69,7 @@ const NewBook=(props)=>{
             autoComplete="off"
             placeholder="año publicacion"
         />
-        <input onChange={handleOnChangeInput}type="submit" value="Registrar"/>
+        <input type="submit" value="Registrar"/>
         </form>
     </>);
 }

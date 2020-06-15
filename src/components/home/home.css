@@ -7,7 +7,7 @@
                        /*  "foot  foot";*/
     grid-template-rows: 100px 1fr 30px;
     grid-template-columns: 200px 1fr;
-    grid-gap: 5px;
+    grid-gap: 2px;
   }
   
   #root > header {

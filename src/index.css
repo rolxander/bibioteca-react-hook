@@ -357,13 +357,17 @@ template {
   align-items: center;
   text-align: center;
   }
-
+  .w-100{
+    width: 100%;
+  }
   .btn{
     border-radius: .5em;
     font-size: 0.8;
     font-weight: 300;
     transition: .4s;
-    padding: 0.4em;
+    padding: 0.8em;
+    width: 120px;
+    margin: 0.5em 1em ;
   }
   .btn:focus{
     outline: none;

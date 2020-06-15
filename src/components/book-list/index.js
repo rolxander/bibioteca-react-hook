@@ -5,7 +5,7 @@ const BookList = (props) =>{
 return(<>{
     bookList.map((book,key)=>{
        // console.log(book)
-        if(book.estado ===props.filter){
+        if(book.estado === props.filter){
         return (<Book  key = {key} book = {book}/>)
         }
         else{
