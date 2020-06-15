@@ -1,20 +1,33 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import Home from './components/home'
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
-import {Provider} from 'react-redux';
-import {store} from './redux/store'
 import Prestamos from './components/prestamos'
 import LiborsNoDevueltos from'./components/reporte-libros-no-devueltos'
 import Container from './components/container'
 import Navigation from './components/navigation'
+import {useDispatch} from 'react-redux';
+
 //Estado inicial de nuestra estructura de datos
 
 
 //creador de nuesta base de datos local 
+const axios = require('axios');
 function App() {
+  const dispatch= useDispatch();
+  useEffect(()=>{
+    axios({
+        method:'get',
+        url:'http://localhost:3500/api/libros'
+    }).then((response)=>{
+        dispatch({
+            type:'SET_BOOK_LIST',
+            payload:response.data
+        })
+        
+    })  
+},[dispatch])
   return (
     //componente que envuelve nuestra aplicacion y que tiene como prop nuesto estado global 
-  <Provider store={store}>
     <Router>
         <Switch>
           <Route exact path="/" render={()=>{
@@ -55,7 +68,6 @@ function App() {
           }}/>
         </Switch>
     </Router>
-   </Provider>
   );
 }
 
