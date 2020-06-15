@@ -8,6 +8,7 @@ const Book=(props)=>{
      const dispatch = useDispatch();
      const {titulo,autor,año_pub,editorial,codigo,estado,prestamos} = props.book
      const [modal,setModal] = useState(false);
+     const [comfirm,setComfirm] = useState(false)
      async function devolverLibro(){
       try{
         const data = await axios(
@@ -15,7 +16,11 @@ const Book=(props)=>{
             method:'put',
             url:`http://localhost:3500/api/prestamos/devolucion/${prestamos[prestamos.length -1]._id}`
           })
-          console.log(data)
+          
+          dispatch({
+            type:'RETURN_BOOK',
+            payload:data.data.data
+          })
       }
       catch(error){
         console.log(error)
@@ -32,7 +37,8 @@ const Book=(props)=>{
             className="btn btn-blue" 
             onClick={ (e)=>{
               e.preventDefault()
-                devolverLibro()
+              setComfirm(true)
+               // devolverLibro()
             }}>Devolver</button>)
         }
      }
@@ -76,10 +82,37 @@ const Book=(props)=>{
        }
      }
     return(<>
-      
+      {comfirm&&(
+        <>
+          <Modal setModal={setComfirm} title = "Devolver libro ?" >
+              <span>
+                  {titulo}
+              </span> 
+              <div className="flex-center">
+              <button 
+                onClick={
+                  (e)=>{
+                    e.preventDefault();
+                    devolverLibro();
+                    setComfirm(false)
+                    
+                }}
+                className="btn btn-green">
+                    ok
+              </button>
+              <button className="btn btn-red" 
+                onClick={(e)=>{
+                  e.preventDefault();
+                  setComfirm(false)
+                }}>
+                    Candelar
+                </button>
+              </div>
+          </Modal>
+        </>)}
       {modal&&(
       <Modal title="Prestar Libro" setModal={setModal}>
-        <NewLoan codigo={props.book.codigo}setModal={setModal} />
+        <NewLoan codigo={codigo}setModal={setModal} />
       </Modal>)}
       <div className="book">
         <div className="title-book">{titulo}</div>

@@ -25,9 +25,27 @@ function reducer(state,action){
             new_state[libro].estado = "prestado"  
             new_state[libro].prestamos = [...new_state[libro].prestamos,action.payload]
           }
+        
         return null});
         return {...state,bookList:new_state,bookListByCode:new_array} 
         
+      }
+      case'RETURN_BOOK':{
+        console.log(action);
+        let new_state = state.bookList;
+        let new_array = []
+        new_state.map(
+          
+          (book)=>{
+            new_array.push(book)
+            if(book._id===action.payload.libro){
+              book.state = "disponible"
+              new_array.pop()
+            }
+            return null;
+          }
+        )
+        return {...state,bookList:new_array,bookListByCode:new_array}
       }
       default :{ return state}
     }
