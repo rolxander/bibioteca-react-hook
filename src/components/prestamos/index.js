@@ -3,7 +3,7 @@ import Search from '../search'
 import {useSelector}from 'react-redux'
 import BookList from '../book-list'
 const Prestamos =()=>{
-    const bookList = useSelector(state=>state.bookListByCode)
+    const bookList = useSelector(state=>state.lista_libros_prestados)
     return(
     <>
         <main>

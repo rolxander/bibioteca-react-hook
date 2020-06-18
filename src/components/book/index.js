@@ -31,7 +31,7 @@ const Book=(props)=>{
         return(<button className="btn btn-green" onClick={()=>{
           setModal(true)
         }}>Prestar</button>)
-       }else if(estado==="prestado"){
+       }else if(estado==="prestado"||"deben"){
           return (
             <button 
             className="btn btn-blue" 

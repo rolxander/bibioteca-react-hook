@@ -1,4 +1,59 @@
-function reducer(state,action){
+import Biblioteca from '../estructura/biblioteca' 
+export default function reducer(state,action){  
+  switch(action.type){
+    case 'SET_BOOK_LIST':{
+      let estado = new Biblioteca(action.payload);
+      return {...state,
+        lista_libros:estado.getEstado(),
+        lista_libros_disponibles:estado.getDisponibles(),
+        lista_libros_prestados:estado.getPrestados(),
+        lista_libros_no_devueltos:estado.getNodevueltos()
+      }
+    }
+    case 'FILTER_BY_CODE':{
+          let estado = new Biblioteca(state.lista_libros);
+      estado.buscarLibro(action.payload);
+      return {
+        ...state,
+        lista_libros_disponibles:estado.getDisponibles(),
+        lista_libros_prestados:estado.getPrestados(),
+        lista_libros_no_devueltos:estado.getNodevueltos()
+      }
+    }
+    case 'SET_NEW_BOOK':{
+      let estado = new Biblioteca(state.lista_libros);
+      estado.registrarLibro(action.payload)
+      return {
+        lista_libros:estado.getEstado(),
+        lista_libros_disponibles:estado.getDisponibles(),
+        lista_libros_prestados:estado.getPrestados(),
+        lista_libros_no_devueltos:estado.getNodevueltos()
+      }
+    }
+    case'SET_LOAN_BOOK':{
+      let estado = new Biblioteca(state.lista_libros);
+      estado.registrarPrestamo(action.payload)
+      return {
+        lista_libros:estado.getEstado(),
+        lista_libros_disponibles:estado.getDisponibles(),
+        lista_libros_prestados:estado.getPrestados(),
+        lista_libros_no_devueltos:estado.getNodevueltos()
+      }
+    }
+    case'RETURN_BOOK':{
+      let estado = new Biblioteca(state.lista_libros);
+      estado.devolverLibro(action.payload)
+      return {
+        lista_libros:estado.getEstado(),
+        lista_libros_disponibles:estado.getDisponibles(),
+        lista_libros_prestados:estado.getPrestados(),
+        lista_libros_no_devueltos:estado.getNodevueltos()
+      }
+    }
+    default :{ return state}
+  }
+}
+/*function reducer(state,action){
     switch(action.type){
       case 'SET_BOOK_LIST':{
           return {...state,bookList:action.payload,bookListByCode:action.payload}
@@ -35,7 +90,6 @@ function reducer(state,action){
         let new_state = state.bookList;
         let new_array = []
         new_state.map(
-          
           (book)=>{
             new_array.push(book)
             if(book._id===action.payload.libro){
@@ -50,4 +104,4 @@ function reducer(state,action){
       default :{ return state}
     }
   }
-export default reducer;
+export default reducer;*/

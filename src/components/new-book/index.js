@@ -12,7 +12,7 @@ const NewBook=(props)=>{
     }
     return(
     <>
-        <form action="#" onSubmit={(e)=>{
+        <form action="#" id="new-book"onSubmit={(e)=>{
             const {setModal} = props;
             e.preventDefault();
             axios({
