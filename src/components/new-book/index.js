@@ -34,42 +34,76 @@ const NewBook=(props)=>{
               });
               
         }}>
-        <input 
-            onChange={handleOnChangeInput}
-            type="text" 
-            name="isbn" 
-            placeholder="isbn" 
-            autoComplete="off"
-        />
-        <input 
-            onChange={handleOnChangeInput} 
-            type="text" name="titulo" placeholder="titulo"
-            autoComplete="off"
-        />
-        <input 
-            onChange={handleOnChangeInput}
-            type="text" 
-            name="autor"
-            autoComplete="off"
-            placeholder="autor"
-        />
+        <div className="input">
+            <input 
+                onChange={handleOnChangeInput}
+                type="text" 
+                name="isbn" 
+                autoComplete="off"
+                required
+
+            />
+            <label>
+                isbn       
+            </label>
+        </div>
+        <div className="input">
+            <input 
+                onChange={handleOnChangeInput} 
+                type="text" name="titulo" 
+                autoComplete="off"
+                required
+
+            />
+            <label>
+                titulo    
+            </label>
+        </div>
+        <div className="input">
+            <input 
+                onChange={handleOnChangeInput}
+                type="text" 
+                name="autor"
+                autoComplete="off"
+                required
+            />   
+            <label>
+                autor
+            </label>
+        </div>
+        <div className="input">
         <input 
             onChange={handleOnChangeInput}
             type="text" name="editorial"
             autoComplete="off"
-            placeholder="editorial"
+            required
         />
+            <label>
+                editorial                   
+            </label>
+        </div>
+        <div className="input">
         <input 
             onChange={handleOnChangeInput}
             type="number" 
             step="1" 
-            min="1500" 
+            min="1850" 
             max="2030" 
             name="año_pub"
             autoComplete="off"
-            placeholder="año publicacion"
+            required
         />
-        <input type="submit" value="Registrar"/>
+
+            <label>
+                año de publicacion
+            </label>
+        </div>
+        
+       
+     
+       
+   
+        <input className="btn btn-green" type="submit" value="Registrar"/>
         </form>
     </>);
 }

@@ -50,6 +50,18 @@ export default function reducer(state,action){
         lista_libros_no_devueltos:estado.getNodevueltos()
       }
     }
+    case 'DELETE_BOOK':{
+      let estado = new Biblioteca(state.lista_libros);
+      console.log(action.payload)
+      estado.bajaLibro(action.payload._id,action.payload.motivo_baja);
+    
+      return {
+        lista_libros:estado.getEstado(),
+        lista_libros_disponibles:estado.getDisponibles(),
+        lista_libros_prestados:estado.getPrestados(),
+        lista_libros_no_devueltos:estado.getNodevueltos()
+      }
+    }
     default :{ return state}
   }
 }

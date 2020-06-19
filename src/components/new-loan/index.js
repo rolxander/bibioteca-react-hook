@@ -43,25 +43,38 @@ const NewLoan = (props)=>{
                   }
 
               });
-            }}>        
-            <input 
-                onChange={inputChange}
-                type="text" 
-                name="nombre" 
-                autoComplete="off"/>
-            <input
-                onChange={inputChange} 
-                type="text" 
-                name="celular"
-                autoComplete="off"/>
-            <input
-                onChange={inputChange} 
-                type="text" 
-                name="cantidad_dias"
-                autoComplete="off"/>
-            <input className="btn btn-green w-100" 
-                value="Registrar" 
-                type="submit"/>
+            }}>
+            <div className ="input">            
+                <input 
+                    onChange={inputChange}
+                    type="text" 
+                    name="nombre" 
+                    autoComplete="off"/>
+                    <label>
+                        Nombre
+                    </label>
+            </div>
+            <div className="input">
+                <input
+                    onChange={inputChange} 
+                    type="text" 
+                    name="celular"
+                    autoComplete="off"/>
+                <label>Celular</label>
+            </div>
+            <div className="input">
+                <input
+                    onChange={inputChange} 
+                    type="text" 
+                    name="cantidad_dias"
+                    autoComplete="off"/>
+                <label>Cantidad de dias</label>
+            </div>        
+                
+                
+                <input className="btn btn-green w-100" 
+                    value="Registrar" 
+                    type="submit"/>
         </form>
 
     </>

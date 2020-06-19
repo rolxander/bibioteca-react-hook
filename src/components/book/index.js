@@ -4,11 +4,13 @@ import './book.css'
 import NewLoan from '../new-loan'
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
+import Baja from '../baja-libro'
 const Book=(props)=>{
      const dispatch = useDispatch();
      const {titulo,autor,año_pub,editorial,codigo,estado,prestamos} = props.book
      const [modal,setModal] = useState(false);
      const [comfirm,setComfirm] = useState(false)
+     const [eliminar,setELiminar] = useState(false)
      async function devolverLibro(){
       try{
         const data = await axios(
@@ -122,7 +124,17 @@ const Book=(props)=>{
           </div>
           <div className="book-opcions flex-ceter">
               {buttonOpcion()}
-              <button className="btn btn-red">Eliminar</button>
+              {eliminar&&(
+              <>
+               <Modal setModal={setELiminar} title="Eliminar libro ?">
+                  <Baja codigo={codigo} setModal={setELiminar}/>
+               </Modal>
+              </>)}
+              <button onClick={()=>{
+                setELiminar(true)
+                
+              }
+              } className="btn btn-red">Eliminar</button>
           </div>
         </div>
       </div>

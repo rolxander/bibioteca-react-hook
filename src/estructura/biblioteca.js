@@ -51,11 +51,11 @@ export default class Biblioteca {
         this.no_devueltos.push(libro)
     }
     //
-    getDisponibles(){
-        return this.disponibles
+    getDisponibles( ){
+        return this.disponibles;
     }
     getPrestados(){
-        return this.prestados
+        return this.prestados;
     }
     getNodevueltos(){
         return this.no_devueltos
@@ -96,7 +96,16 @@ export default class Biblioteca {
         });
         this.recorrerLista(this.estado);
     };
-    bajaLibro(){
+    bajaLibro(id,motivo){
+        this.limpiarListas();
+        this.estado.map((libro)=>{
+            if(libro._id === id){
+                libro.estado = 'baja'
+                libro.motivo_baja =motivo 
+            }
+        return null
+        })
+        this.recorrerLista(this.estado)
     }
     
 }
